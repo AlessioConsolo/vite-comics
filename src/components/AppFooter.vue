@@ -44,6 +44,25 @@
       </div>
     </div>
   </div>
+  <div class="bottom-footer container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-between my-4">
+          <div class="signup">
+            <button class="sign-button" type="button">SIGN-UP NOW!</button>
+          </div>
+          <div class="socials d-flex align-items-center">
+            <h5 class="lightblue me-4">FOLLOW US</h5>
+            <ul class="list-unstyled d-flex pt-2">
+              <li v-for="(social, index) in socials">
+                <img :src="getImageUrl(social.img)" alt="" class="px-2" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -85,7 +104,34 @@ export default {
         { title: "DC Universe", url: "#" },
         { title: "DC Power Visa", url: "#" },
       ],
+      socials: [
+        {
+          img: "footer-facebook.png",
+          url: "#",
+        },
+        {
+          img: "footer-twitter.png",
+          url: "#",
+        },
+        {
+          img: "footer-youtube.png",
+          url: "#",
+        },
+        {
+          img: "footer-pinterest.png",
+          url: "#",
+        },
+        {
+          img: "footer-periscope.png",
+          url: "#",
+        },
+      ],
     };
+  },
+  methods: {
+    getImageUrl(img) {
+      return new URL(`../assets/${img}`, import.meta.url).href;
+    },
   },
 };
 </script>
@@ -94,11 +140,25 @@ export default {
   background-image: url(/src/assets/dc-logo-bg.png),
     url(/src/assets/footer-bg.jpg);
   background-size: auto, cover;
-  background-position: right;
+  background-position: 75%;
   background-repeat: no-repeat, no-repeat;
 
   a {
     font-size: small;
+  }
+}
+.bottom-footer {
+  background-color: #333;
+
+  .sign-button {
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border: 3px solid #0282f9;
+  }
+
+  .lightblue {
+    color: #0282f9;
   }
 }
 </style>
