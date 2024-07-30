@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col">
         <div
-          class="header-content d-flex gap-5 justify-content-between align-items-center mt-4"
+          class="header-content d-flex gap-5 justify-content-between align-items-center my-4"
         >
           <img src="../assets/dc-logo.png" alt="" />
-          <ul class="list-unstyled d-flex mt-5">
+          <ul class="list-unstyled d-flex">
             <li class="px-3" v-for="(link, index) in links" :key="index">
-              <a class="" :href="link.url">
+              <a :href="link.url">
                 <strong>{{ link.title }}</strong></a
               >
             </li>
