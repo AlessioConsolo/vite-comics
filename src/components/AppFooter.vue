@@ -55,7 +55,9 @@
             <h5 class="lightblue me-4">FOLLOW US</h5>
             <ul class="list-unstyled d-flex pt-2">
               <li v-for="(social, index) in socials">
-                <img :src="getImageUrl(social.img)" alt="" class="px-2" />
+                <a :href="social.url"
+                  ><img :src="getImageUrl(social.img)" alt="" class="px-2"
+                /></a>
               </li>
             </ul>
           </div>

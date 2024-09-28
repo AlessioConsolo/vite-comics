@@ -1,10 +1,18 @@
-<template lang="">
+<template>
+  <div class="container-fluid jumbotron"></div>
   <div class="container-fluid bg-lightblack">
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="cards my-5">
-            <h2 class="text-white">-->Content goes here <--</h2>
+          <div class="title-text">
+            <h4 class="text-white">CURRENT SERIES</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="cards">
+            <Card v-for="comic in comics" :key="comic.id" :comic="comic" />
           </div>
         </div>
       </div>
@@ -28,7 +36,9 @@
   </div>
 </template>
 <script>
+import Card from "./Cards.vue";
 export default {
+  components: { Card },
   data() {
     return {
       middlecards: [
@@ -58,6 +68,7 @@ export default {
           url: "#",
         },
       ],
+      comics: dcComics, // assegna il contenuto del file JSON a una variabile nel componente
     };
   },
   methods: {
@@ -68,6 +79,20 @@ export default {
 };
 </script>
 <style lang="scss">
+.title-text {
+  background-color: #0282f9;
+  width: fit-content;
+  padding: 10px;
+  position: absolute;
+  top: 525px;
+}
+
+.jumbotron {
+  background-image: url("../assets/jumbotron.jpg");
+  height: 400px;
+  background-size: cover;
+}
+
 .bg-lightblack {
   background-color: #1c1c1c;
 }
